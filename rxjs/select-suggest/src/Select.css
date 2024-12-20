@@ -1,0 +1,20 @@
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.option {
+  padding: 8px;
+  cursor: pointer;
+  background: #f9f9f9;
+}
