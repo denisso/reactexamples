@@ -1,7 +1,3 @@
-Got it! Here’s a revised description focusing on a sortable table feature using Vite and React:
-
----
-
 ### Repository Name: Vite-React-Sortable-Table
 
 **Description:**  
