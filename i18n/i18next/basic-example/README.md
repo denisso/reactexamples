@@ -1,50 +1,85 @@
-# React + TypeScript + Vite
+# i18next + React Demo Example
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains a demo example of using the i18next library for internationalization (i18n) in a React application. The example demonstrates how to easily integrate i18next into your React app to support multilingual functionality.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Examples](#examples)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To get started with the project, clone the repository and install the dependencies. Run the following commands:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/your-username/i18next-react-demo.git
+cd i18next-react-demo
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Usage
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+After installing the dependencies, you can start the application using the command:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm start
 ```
+
+The application will be available at [http://localhost:3000](http://localhost:3000).
+
+## Project Structure
+
+```
+i18next-react-demo/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── components/
+│   │   └── ...
+│   ├── locales/
+│   │   ├── en/
+│   │   │   └── translation.json
+│   │   └── ru/
+│   │       └── translation.json
+│   ├── App.js
+│   ├── index.js
+│   └── ...
+├── package.json
+└── README.md
+```
+
+- **public/**: Contains static files, including the HTML template.
+- **src/**: The main folder with the source code of the application.
+  - **components/**: React components.
+  - **locales/**: Localization files for different languages.
+  - **App.js**: The main component of the application.
+  - **index.js**: The entry point of the application.
+
+## Examples
+
+In this project, you will find examples of using i18next to translate text in React components. For instance, in the `App.js` file, you can see how to use the `useTranslation` hook to get translated strings:
+
+```javascript
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+const App = () => {
+  const { t } = useTranslation();
+
+  return (
+    <div>
+      <h1>{t('welcome_message')}</h1>
+    </div>
+  );
+};
+
+export default App;
+```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
