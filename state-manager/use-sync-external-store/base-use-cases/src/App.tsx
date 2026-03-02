@@ -1,5 +1,7 @@
 import { Counter } from './counter';
 import { StatusBar } from './browser-api';
+import { Parent } from './parent-child';
+
 import './App.css';
 
 function App() {
@@ -7,6 +9,7 @@ function App() {
     <>
       <Counter />
       <StatusBar />
+      <Parent />
     </>
   );
 }

@@ -2,7 +2,10 @@ type Listener = Function;
 
 export class Store<T extends object> {
   listeners = new Set<Listener>();
-  constructor(public state: T) {}
+  constructor(public state: T) {
+    this.subscribe = this.subscribe.bind(this);
+    this.getSnapshot = this.getSnapshot.bind(this);
+  }
   getSnapshot() {
     return this.state;
   }
@@ -14,7 +17,7 @@ export class Store<T extends object> {
 
   set(state: T) {
     if (state === this.state) return;
-    state = this.state;
+    this.state = state;
     this.listeners.forEach((l) => l());
   }
 }

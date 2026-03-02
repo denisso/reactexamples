@@ -7,7 +7,7 @@ export const Parent = () => {
   return (
     <>
       {arr.ids.map((id) => (
-        <Child key={id} />
+        <Child id={id} key={id} />
       ))}
     </>
   );
