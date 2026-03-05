@@ -1,14 +1,32 @@
-import { ids } from './data';
+import React from 'react';
+import { ids, updateAnpPlusOne, reCreateCounters } from './data';
 import { useState } from './api';
 import { Child } from './child';
 
-export const Parent = () => {
-  const arr = useState(ids);
+const InputCounters = () => {
+  const [num, setNum] = React.useState(0);
   return (
     <>
-      {arr.ids.map((id) => (
-        <Child id={id} key={id} />
-      ))}
+      <button onClick={() => reCreateCounters(num)}>Set Num Counters: </button>
+      <input onChange={(e) => setNum(+e.target.value)} value={num} />
+    </>
+  );
+};
+
+export const Parent = () => {
+  const arr = useState(ids);
+
+  return (
+    <>
+      <div>
+        <button onClick={updateAnpPlusOne}>Update counters</button>
+        <InputCounters />
+      </div>
+      <div>
+        {arr.ids.map((id) => (
+          <Child id={id} key={id} />
+        ))}
+      </div>
     </>
   );
 };
